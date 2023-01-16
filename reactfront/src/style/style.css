@@ -1,0 +1,25 @@
+.color-header{
+    background-color:#182b45;
+    color: white;
+    padding: 20px 0 20px 0;
+    margin-bottom: 3%;
+    box-shadow: black 0px 1px 25px 1px;
+}
+
+.color-table{
+    background-color: #213a75;
+}
+
+.sep-button button{
+    margin-left: 40px;
+}
+
+.sep-button{
+    margin-top: 3%;
+}
+
+.posicion-btn{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
