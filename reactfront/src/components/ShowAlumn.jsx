@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
-
+import swal from 'sweetalert';
 
 const endponit = 'http://localhost:8000/api'
 
@@ -21,9 +21,20 @@ const ShowAlumn = () => {
     }
 
     const deleteAlumn = async (id) =>{
-        await axios.delete(`${endponit}/alumno/${id}`)
-        getAllAlumnos()
-        alert('Se elimino el alumno correctamente :D')
+
+        swal({
+            title: "Advertencia",
+            text: "¿Quieres eliminar estos datos?",
+            icon: "warning",
+            buttons: ["No", "Si"],
+        }).then(respuesta=>{
+            if (respuesta) {
+                swal({text:"Se elimninó con exito :D", icon:"success"})
+                axios.delete(`${endponit}/alumno/${id}`)
+
+            }
+        })
+
     }
 
   return (

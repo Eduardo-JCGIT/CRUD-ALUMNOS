@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import {Link} from 'react-router-dom'
+import swal from 'sweetalert';
 
 const endponit = 'http://localhost:8000/api/alumno'
 
@@ -24,7 +25,7 @@ const CreateAlumn = () => {
         e.preventDefault()
         await axios.post(endponit, {matricula: matricula, nombre: nombre, apellidomaterno: apellidomaterno, apellidopaterno: apellidopaterno, edad: edad, carrera: carrera, cuatrimestre: cuatrimestre, calificacion: calificacion})
         navigate('/')
-        alert("Se añadio el esudiante en el registro :D")
+        swal({text:"Se elimninó con exito :D", icon:"success"})
     }
 
   return (
@@ -51,6 +52,8 @@ const CreateAlumn = () => {
             onChange={ (e)=> setMatricula(e.target.value)}
             type="text"
             className='form-control'
+            required=''
+            pattern='[A-Z]+'
             />
         </div>
 
@@ -60,6 +63,8 @@ const CreateAlumn = () => {
             onChange={ (e)=> setNombre(e.target.value)}
             type="text"
             className='form-control'
+            required=''
+            pattern='[a-zA-Z]+'
             />
         </div>
         
@@ -71,6 +76,8 @@ const CreateAlumn = () => {
             onChange={ (e)=> setApellidopaterno(e.target.value)}
             type="text"
             className='form-control'
+            required=''
+            pattern='[a-zA-Z]+'
             />
         </div>
 
@@ -80,6 +87,8 @@ const CreateAlumn = () => {
             onChange={ (e)=> setApellidomaterno(e.target.value)}
             type="text"
             className='form-control'
+            required=''
+            pattern='[a-zA-Z]+'
             />
         </div>
 
@@ -91,6 +100,9 @@ const CreateAlumn = () => {
             onChange={ (e)=> setEdad(e.target.value)}
             type="number"
             className='form-control'
+            pattern='[0-9]'
+            min='1'
+            max='99'
             />
         </div>
 
@@ -134,6 +146,10 @@ const CreateAlumn = () => {
             onChange={ (e)=> setCalificacion(e.target.value)}
             type="number"
             className='form-control'
+            required=''
+            pattern='[0-9]'
+            min='0'
+            max='10'
             />
         </div>
         </div>
